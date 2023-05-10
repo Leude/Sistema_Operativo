@@ -4,7 +4,7 @@ import ventanas.VentanaComputadora;
 
 import javax.swing.*;
 
-public class AlgoritmosSO {
+public class Sistema_Operativo {
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("SimuladorSO");
 

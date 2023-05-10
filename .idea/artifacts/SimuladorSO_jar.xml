@@ -2,7 +2,7 @@
   <artifact type="jar" build-on-make="true" name="SimuladorSO:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/SimuladorSO_jar</output-path>
     <root id="archive" name="SimuladorSO.jar">
-      <element id="module-output" name="SistemaOperativo" />
+      <element id="module-output" name="Sistema_Operativo" />
     </root>
   </artifact>
 </component>
