@@ -1,10 +1,9 @@
 package ventanas;
 
-import algos.*;
+import remplazo.*;
 
 
 import javax.swing.*;
-import javax.swing.text.DefaultEditorKit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

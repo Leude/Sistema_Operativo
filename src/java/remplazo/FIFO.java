@@ -1,14 +1,9 @@
-package algos;
+package remplazo;
+
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
-
-public class OPTIMAL {
-
-    int frames, pointer = 0, hit = 0, fault = 0,ref_len;
-    boolean isFull = false;
+public class FIFO {
+    int frames, pointer = 0, hit = 0, fault = 0, ref_len;
     int buffer[];
     int reference[];
     int mem_layout[][];
@@ -21,6 +16,7 @@ public class OPTIMAL {
         System.out.println("Please enter the length of the Reference string: ");
         ref_len = i;
     }
+
     public void proceso() {
         reference = new int[ref_len];
         mem_layout = new int[ref_len][frames];
@@ -43,40 +39,11 @@ public class OPTIMAL {
                 }
             }
             if (search == -1) {
-                if (isFull) {
-                    int index[] = new int[frames];
-                    boolean index_flag[] = new boolean[frames];
-                    for (int j = i + 1; j < ref_len; j++) {
-                        for (int k = 0; k < frames; k++) {
-                            if ((reference[j] == buffer[k]) && (index_flag[k] == false)) {
-                                index[k] = j;
-                                index_flag[k] = true;
-                                break;
-                            }
-                        }
-                    }
-                    int max = index[0];
-                    pointer = 0;
-                    if (max == 0)
-                        max = 200;
-                    for (int j = 0; j < frames; j++) {
-                        if (index[j] == 0)
-                            index[j] = 200;
-                        if (index[j] > max) {
-                            max = index[j];
-                            pointer = j;
-                        }
-                    }
-                }
                 buffer[pointer] = reference[i];
                 fault++;
-                if (!isFull) {
-                    pointer++;
-                    if (pointer == frames) {
-                        pointer = 0;
-                        isFull = true;
-                    }
-                }
+                pointer++;
+                if (pointer == frames)
+                    pointer = 0;
             }
             for (int j = 0; j < frames; j++)
                 mem_layout[i][j] = buffer[j];
@@ -88,10 +55,13 @@ public class OPTIMAL {
             System.out.println();
         }
 
+
         System.out.println("The number of Hits: " + hit);
         System.out.println("Hit Ratio: " + (float) ((float) hit / ref_len));
         System.out.println("The number of Faults: " + fault);
+
     }
+
     public int getHit() {
         return hit;
     }
@@ -101,7 +71,7 @@ public class OPTIMAL {
     }
 
     public int getFault(){
-        return fault;
+       return fault;
     }
 
     public int[][] getMem_layout() {

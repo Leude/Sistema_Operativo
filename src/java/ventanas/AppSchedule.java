@@ -1,6 +1,5 @@
 package ventanas;
 
-import algoritmos.calendarización.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -44,11 +43,11 @@ public class AppSchedule {
         ejecutarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                iniciarScheduling(algoritmoProcesosComboBox.getSelectedIndex(), (int) quantumSpinner.getValue());
+                //iniciarScheduling(algoritmoProcesosComboBox.getSelectedIndex(), (int) quantumSpinner.getValue());
             }
         });
     }
-
+/*
     public void iniciarScheduling(int opcion, int quantum) {
         DefaultTableModel modelScheduling = new DefaultTableModel(new Object[]{"Nombre", "Tiempo de Espera"}, 0);
         schedulingTable.setModel(modelScheduling);
@@ -86,7 +85,7 @@ public class AppSchedule {
 
         tiempoMedioLabel.setText(String.valueOf(scheduling.calcularTiempoMedioEspera()));
     }
-
+*/
     public JPanel getPanelCalendarizacion() {
         return panelCalendarizacion;
     }
