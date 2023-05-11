@@ -11,7 +11,7 @@ public class VentanaComputadora {
     private JButton memoriaButton;
     private JButton archivosButton;
     private JPanel escritorio;
-    private JLabel relojLabel;
+    private JButton button1;
     private JPanel programa;
     private JButton cerrarButton;
 
@@ -32,7 +32,7 @@ public class VentanaComputadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame jFrame = new JFrame();
-                jFrame.setContentPane(new AppPaginacion().getPanelPaginacion());
+                jFrame.setContentPane(new AppPageReplacement().getPanelPaginacion());
                 jFrame.setVisible(true);
                 jFrame.setLocation(procesosButton.getLocation());
                 jFrame.pack();
@@ -48,15 +48,16 @@ public class VentanaComputadora {
                 jFrame.pack();
             }
         });
-
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("APAGADO");
+            }
+        });
     }
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
-    }
-
-    public JLabel getRelojLabel(){
-        return relojLabel;
     }
 
 }

@@ -1,4 +1,3 @@
-import util.Reloj;
 
 import ventanas.VentanaComputadora;
 
@@ -12,9 +11,7 @@ public class Sistema_Operativo {
         jFrame.setContentPane(simulador.getPanelPrincipal());
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
-        jFrame.pack();
 
-        Thread reloj = new Reloj(simulador.getRelojLabel());
-        reloj.run();
+        jFrame.pack();
     }
 }
