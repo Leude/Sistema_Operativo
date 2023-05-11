@@ -6,14 +6,11 @@ import java.awt.event.ActionListener;
 
 public class VentanaComputadora {
     private JPanel panelPrincipal;
-    private JPanel monitor;
     private JButton procesosButton;
     private JButton memoriaButton;
     private JButton archivosButton;
     private JPanel escritorio;
-    private JButton button1;
-    private JPanel programa;
-    private JButton cerrarButton;
+    private JPanel monitor;
 
     public VentanaComputadora() {
 
@@ -46,12 +43,6 @@ public class VentanaComputadora {
                 jFrame.setVisible(true);
                 jFrame.setLocation(procesosButton.getLocation());
                 jFrame.pack();
-            }
-        });
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("APAGADO");
             }
         });
     }
