@@ -51,9 +51,11 @@
                   <foreground color="-1"/>
                   <hideActionText value="true"/>
                   <horizontalTextPosition value="11"/>
+                  <icon value="upc.png"/>
                   <iconTextGap value="4"/>
                   <requestFocusEnabled value="true"/>
-                  <text value="Procesos"/>
+                  <text value=""/>
+                  <toolTipText value="Scheduling"/>
                   <verifyInputWhenFocusTarget value="true"/>
                 </properties>
               </component>
@@ -66,7 +68,9 @@
                   <borderPainted value="false"/>
                   <font name="Calibri" size="12" style="0"/>
                   <foreground color="-1"/>
-                  <text value="Memoria"/>
+                  <icon value="capas.png"/>
+                  <text value=""/>
+                  <toolTipText value="Page Replacement"/>
                 </properties>
               </component>
               <component id="fe617" class="javax.swing.JButton" binding="archivosButton">
@@ -78,7 +82,9 @@
                   <borderPainted value="false"/>
                   <font name="Calibri" size="12" style="0"/>
                   <foreground color="-1"/>
-                  <text value="Archivos"/>
+                  <icon value="carpeta.png"/>
+                  <text value=""/>
+                  <toolTipText value="Files"/>
                 </properties>
               </component>
               <grid id="496d0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

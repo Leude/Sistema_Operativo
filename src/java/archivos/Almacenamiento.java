@@ -10,7 +10,7 @@ public class Almacenamiento {
 
     public static LinkedHashMap<String, Archivo> archivos = new LinkedHashMap<>();
 
-    public Almacenamiento() {
+    static{
         Archivo archivo = new Archivo("Jorge", "Diaz", 34, "Felipe_Villanueva", 763, 50122, "jd99@yahoo.com");
         Archivo archivo1 = new Archivo("Eduardo", "Diaz", 32, "Felipe_Villanueva", 763, 50122, "ed97@yahoo.com");
         Archivo archivo2 = new Archivo("Mauricio", "Diaz", 28, "Felipe_Villanueva", 763, 50122, "md98@yahoo.com");
@@ -23,6 +23,9 @@ public class Almacenamiento {
         archivos.put(String.valueOf(archivo4.hashCode()), archivo4);
     }
 
+    private Almacenamiento(){
+
+    }
     public static Vector<Vector<String>> buscarArchivo(String busqueda, int tipoBusqueda) {
         System.out.println("BUSCANDO" + Almacenamiento.archivos.size());
         Vector<Vector<String>> vectors = new Vector<>();
