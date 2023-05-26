@@ -1,17 +1,11 @@
-package ventanas;
-
-import archivos.Almacenamiento;
-import archivos.Archivo;
+package windows;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Hashtable;
 
-import static archivos.Almacenamiento.*;
+import static file.Storage.*;
 
 public class AppFile {
     private JPanel panelCRUD;
@@ -35,36 +29,24 @@ public class AppFile {
 
     public AppFile() {
         tableProductos.setModel(model);
-        agregarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                agregarArchivo(nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
-                buscarButton.doClick();
-            }
+        agregarButton.addActionListener(e -> {
+            agregarArchivo(nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
+            buscarButton.doClick();
         });
-        removerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                removerArchivo(idField.getText());
-                buscarButton.doClick();
-            }
+        removerButton.addActionListener(e -> {
+            removerArchivo(idField.getText());
+            buscarButton.doClick();
         });
-        modificarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                modificarArchivo(idField.getText(), nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
-                buscarButton.doClick();
-            }
+        modificarButton.addActionListener(e -> {
+            modificarArchivo(idField.getText(), nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
+            buscarButton.doClick();
         });
-        buscarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                model = new DefaultTableModel();
-                model.setDataVector(
-                        buscarArchivo(buscarField.getText(), buscarBox.getSelectedIndex()),
-                        columna);
-                tableProductos.setModel(model);
-            }
+        buscarButton.addActionListener(e -> {
+            model = new DefaultTableModel();
+            model.setDataVector(
+                    buscarArchivo(buscarField.getText(), buscarBox.getSelectedIndex()),
+                    columna);
+            tableProductos.setModel(model);
         });
         tableProductos.addMouseListener(new MouseAdapter() {
             @Override

@@ -1,35 +1,24 @@
-package remplazo;
-import javax.swing.*;
+package replacement;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.String.format;
+import static javax.swing.JOptionPane.showInputDialog;
 
 public class OPTIMAL {
+    private final StringBuilder stringBuilder = new StringBuilder();
+    private int frames, pointer = 0, hit = 0, fault = 0, ref_len;
+    private boolean isFull = false;
 
-    int frames, pointer = 0, hit = 0, fault = 0,ref_len;
-    boolean isFull = false;
-    int buffer[];
-    int reference[];
-    int mem_layout[][];
-
-    public void num_frames(int i) {System.out.println("Please enter the number of Frames: ");
-        frames=i;
-
-    }
-    public void cantidadReferencias(int i) {
-        System.out.println("Please enter the length of the Reference string: ");
-        ref_len = i;
-    }
-    public void proceso() {
-        reference = new int[ref_len];
-        mem_layout = new int[ref_len][frames];
-        buffer = new int[frames];
+    public void execute() {
+        int[] reference = new int[ref_len];
+        int[][] mem_layout = new int[ref_len][frames];
+        int[] buffer = new int[frames];
         for (int j = 0; j < frames; j++)
             buffer[j] = -1;
 
-        System.out.println("Please enter the reference string: ");
         for (int i = 0; i < ref_len; i++) {
-            reference[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa"));
+            reference[i] = parseInt(showInputDialog("Ingresa"));
         }
-        System.out.println();
         for (int i = 0; i < ref_len; i++) {
             int search = -1;
             for (int j = 0; j < frames; j++) {
@@ -81,14 +70,11 @@ public class OPTIMAL {
 
         for (int i = 0; i < frames; i++) {
             for (int j = 0; j < ref_len; j++)
-                System.out.printf("%3d ", mem_layout[j][i]);
-            System.out.println();
+                stringBuilder.append(format("%3d ", mem_layout[j][i]));
+            stringBuilder.append("\n");
         }
-
-        System.out.println("The number of Hits: " + hit);
-        System.out.println("Hit Ratio: " + (float) ((float) hit / ref_len));
-        System.out.println("The number of Faults: " + fault);
     }
+
     public int getHit() {
         return hit;
     }
@@ -97,30 +83,19 @@ public class OPTIMAL {
         return ((float) hit / ref_len);
     }
 
-    public int getFault(){
+    public int getFault() {
         return fault;
     }
 
-    public int[][] getMem_layout() {
-        return mem_layout;
+    public String getOutString() {
+        return stringBuilder.toString();
     }
 
-    public int getFrames() {
-        return frames;
+    public void setFrames(int frames) {
+        this.frames = frames;
     }
 
-    public int getRef_len() {
-        return ref_len;
-    }
-
-    public String getResultado(){
-        String s = "";
-        for (int i = 0; i < frames; i++) {
-            for (int j = 0; j < ref_len; j++)
-                s+="\t"+ mem_layout[j][i];
-
-            s+="\n";
-        }
-        return s;
+    public void setRef_len(int ref_len) {
+        this.ref_len = ref_len;
     }
 }

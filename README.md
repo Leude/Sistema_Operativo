@@ -1,5 +1,5 @@
 # Sistema_Operativo
-Un simulador de un sistema operativo para comprender como funciona internamente los  sistemas operativos , se implementan los algoritmos, como la calendarizacion de procesos, tambien el remplazo de pagina en memoria, y una representacion del almacenamiento de archivos en el sistema
+Un simulador de un sistema operativo para comprender como funciona internamente los  sistemas operativos , se implementan los algoritmos, como la calendarizacion de procesos, tambien el replacement de pagina en memoria, y una representacion del almacenamiento de file en el sistema
 
 Vista Principal
 

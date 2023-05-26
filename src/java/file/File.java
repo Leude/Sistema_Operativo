@@ -1,6 +1,6 @@
-package archivos;
+package file;
 
-public class Archivo {
+public class File {
 
     private String nombre;
     private String apellido;
@@ -11,7 +11,7 @@ public class Archivo {
     private String email;
 
 
-    public Archivo(String nombre, String apellido, int edad, String calle, int numero, int cp, String email) {
+    public File(String nombre, String apellido, int edad, String calle, int numero, int cp, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
