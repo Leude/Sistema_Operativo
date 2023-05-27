@@ -12,11 +12,11 @@ public class Storage {
     public static LinkedHashMap<String, File> archivos = new LinkedHashMap<>();
 
     static {
-        File file = new File("Jorge", "Diaz", 34, "Felipe_Villanueva", 763, 50122, "jd99@yahoo.com");
-        File file1 = new File("Eduardo", "Diaz", 32, "Felipe_Villanueva", 763, 50122, "ed97@yahoo.com");
-        File file2 = new File("Mauricio", "Diaz", 28, "Felipe_Villanueva", 763, 50122, "md98@yahoo.com");
-        File file3 = new File("Ana", "Diaz", 33, "Felipe_Villanueva", 763, 50122, "ad92@yahoo.com");
-        File file4 = new File("Rosa", "Diaz", 35, "Felipe_Villanueva", 763, 50122, "rd93@yahoo.com");
+        File file = new File("Jorge", "Diaz", 34, "Felipe_Villa", 763, 50122, "jd99@yahoo.com");
+        File file1 = new File("Eduardo", "Diaz", 32, "Felipe_Villa", 763, 50122, "ed97@yahoo.com");
+        File file2 = new File("Mauricio", "Diaz", 28, "Felipe_Villa", 763, 50122, "md98@yahoo.com");
+        File file3 = new File("Ana", "Diaz", 33, "Felipe_Villa", 763, 50122, "ad92@yahoo.com");
+        File file4 = new File("Rosa", "Diaz", 35, "Felipe_Villan", 763, 50122, "rd93@yahoo.com");
         archivos.put(String.valueOf(file.hashCode()), file);
         archivos.put(String.valueOf(file1.hashCode()), file1);
         archivos.put(String.valueOf(file2.hashCode()), file2);
@@ -96,13 +96,13 @@ public class Storage {
     }
 
     //Altas//
-    public static void agregarArchivo(String nombre, String apellido, int edad, String calle, int numero, int cp, String email) {
+    public static void agregarArchivo(String nombre, String apellido, int edad, String calle, long numero, int cp, String email) {
         File file = new File(nombre, apellido, edad, calle, numero, cp, email);
         archivos.put(String.valueOf(file.hashCode()), file);
     }
 
     //Cambios//
-    public static void modificarArchivo(String key, String nombre, String apellido, int edad, String calle, int numero, int cp, String email) {
+    public static void modificarArchivo(String key, String nombre, String apellido, int edad, String calle, long numero, int cp, String email) {
         File file = archivos.get(key);
         file.setNombre(nombre);
         file.setApellido(apellido);

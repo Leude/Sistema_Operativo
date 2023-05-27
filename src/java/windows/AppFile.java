@@ -2,43 +2,37 @@ package windows;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import static file.Storage.*;
 
 public class AppFile {
-    private JPanel panelCRUD;
-    private JTextField idField;
-    private JTextField nombreField;
-    private JTextField apellidoField;
-    private JTextField edadField;
-    private JTextField calleField;
-    private JTextField numeroField;
-    private JTextField cpField;
-    private JTextField emailField;
+    private JButton modificarButton;
     private JButton agregarButton;
     private JButton removerButton;
-    private JButton modificarButton;
     private JComboBox buscarBox;
     private JTextField buscarField;
-    private JButton buscarButton;
-    private JTable tableProductos;
+    protected JButton buscarButton;
+    protected JTable tableProductos;
+    private JPanel panel;
 
-    DefaultTableModel model = new DefaultTableModel();
+    protected DefaultTableModel model = new DefaultTableModel();
 
     public AppFile() {
-        tableProductos.setModel(model);
         agregarButton.addActionListener(e -> {
-            agregarArchivo(nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
-            buscarButton.doClick();
-        });
-        removerButton.addActionListener(e -> {
-            removerArchivo(idField.getText());
-            buscarButton.doClick();
+            Format format = new Format(this);
+            format.setLocation(panel.getWidth() / 2, panel.getHeight() / 2);
+            format.pack();
+            format.setVisible(true);
         });
         modificarButton.addActionListener(e -> {
-            modificarArchivo(idField.getText(), nombreField.getText(), apellidoField.getText(), Integer.valueOf(edadField.getText()), calleField.getText(), Integer.valueOf(numeroField.getText()), Integer.valueOf(cpField.getText()), emailField.getText());
+            Format format = new Format(this);
+            format.setEditar();
+            format.setLocation(panel.getWidth() / 2, panel.getHeight() / 2);
+            format.pack();
+            format.setVisible(true);
+        });
+        removerButton.addActionListener(e -> {
+            removerArchivo((String) model.getValueAt(tableProductos.getSelectedRow(), 0));
             buscarButton.doClick();
         });
         buscarButton.addActionListener(e -> {
@@ -48,22 +42,9 @@ public class AppFile {
                     columna);
             tableProductos.setModel(model);
         });
-        tableProductos.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                idField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 0));
-                nombreField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 1));
-                apellidoField.setText(String.valueOf(model.getValueAt(tableProductos.getSelectedRow(), 2)));
-                edadField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 3));
-                calleField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 4));
-                numeroField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 5));
-                cpField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 6));
-                emailField.setText((String) model.getValueAt(tableProductos.getSelectedRow(), 7));
-            }
-        });
     }
 
-    public JPanel getPanelCRUD() {
-        return panelCRUD;
+    public JPanel getPanel() {
+        return panel;
     }
 }

@@ -29,7 +29,7 @@ public class PC {
         });
         archivosButton.addActionListener(e -> {
             JFrame jFrame = new JFrame();
-            jFrame.setContentPane(new AppFile().getPanelCRUD());
+            jFrame.setContentPane(new AppFile().getPanel());
             jFrame.setVisible(true);
             jFrame.setLocation(escritorio.getWidth() / 4, escritorio.getHeight() / 4);
             jFrame.pack();

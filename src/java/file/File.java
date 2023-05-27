@@ -6,12 +6,12 @@ public class File {
     private String apellido;
     private int edad;
     private String calle;
-    private int numero;
+    private long numero;
     private int cp;
     private String email;
 
 
-    public File(String nombre, String apellido, int edad, String calle, int numero, int cp, String email) {
+    public File(String nombre, String apellido, int edad, String calle, long numero, int cp, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -53,11 +53,11 @@ public class File {
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public long getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
