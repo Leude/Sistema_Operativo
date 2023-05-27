@@ -14,6 +14,7 @@ public class AppFile {
     protected JButton buscarButton;
     protected JTable tableProductos;
     private JPanel panel;
+    private JComboBox algoritmo;
 
     protected DefaultTableModel model = new DefaultTableModel();
 
